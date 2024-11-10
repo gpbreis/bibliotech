@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 public interface EmprestimoRepository extends JpaRepository<Emprestimo, Long> {
 
     @Query("select count(*) from Emprestimo where livroId = :livroId and status = 1")
-    public Long emprestimosAtivos(@Param("livroId") Livro id);
+    Long emprestimosAtivos(@Param("livroId") Livro id);
 
 
 }

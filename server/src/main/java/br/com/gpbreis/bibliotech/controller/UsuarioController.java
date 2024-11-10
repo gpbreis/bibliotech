@@ -16,8 +16,8 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping
-    public ResponseEntity<Usuario> criar(@Valid @RequestBody UsuarioDto usuarioDto){
-        Usuario novoUsuario = this.usuarioService.criarUsuario(usuarioDto);
+    public ResponseEntity<UsuarioDto> criar(@Valid @RequestBody UsuarioDto usuarioDto){
+        UsuarioDto novoUsuario = this.usuarioService.criarUsuario(usuarioDto);
         return ResponseEntity.ok(novoUsuario);
     }
 
@@ -28,9 +28,9 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioDto);
     }
 
-    @PutMapping
-    public ResponseEntity<Usuario> atualizar(@Valid @RequestBody UsuarioDto usuarioDto){
-        Usuario usuario = this.usuarioService.atualizarUsuario(usuarioDto);
+    @PutMapping("/{id}")
+    public ResponseEntity<UsuarioDto> atualizar(@PathVariable("id") Long id, @Valid @RequestBody UsuarioDto usuarioDto){
+        UsuarioDto usuario = this.usuarioService.atualizarUsuario(id, usuarioDto);
         return ResponseEntity.ok(usuario);
     }
 

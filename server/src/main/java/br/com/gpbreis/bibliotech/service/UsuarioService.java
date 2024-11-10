@@ -17,17 +17,12 @@ public class UsuarioService {
 
 
 
-    public Usuario criarUsuario(UsuarioDto usuarioDto){
+    public UsuarioDto criarUsuario(UsuarioDto usuarioDto){
 
-        Usuario novoUsuario = new Usuario();
-        novoUsuario.setNome(usuarioDto.nome());
-        novoUsuario.setEmail(usuarioDto.email());
-        novoUsuario.setDataCadastro(usuarioDto.dataCadastro());
-        novoUsuario.setTelefone(usuarioDto.telefone());
-
+        Usuario novoUsuario = this.toUsuario(usuarioDto);
         usuarioRepository.save(novoUsuario);
 
-        return novoUsuario;
+        return this.toDto(novoUsuario);
     }
 
     public UsuarioDto lerUsuario(Long id) {
@@ -44,17 +39,17 @@ public class UsuarioService {
         }
     }
 
-    public Usuario atualizarUsuario(UsuarioDto usuarioDto) {
-        Usuario usuarioAtualizado = new Usuario();
-        usuarioAtualizado.setId(usuarioDto.id());
+    public UsuarioDto atualizarUsuario(Long id, UsuarioDto usuarioDto) {
+
+        Usuario usuarioAtualizado = usuarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado"));
         usuarioAtualizado.setNome(usuarioDto.nome());
         usuarioAtualizado.setEmail(usuarioDto.email());
         usuarioAtualizado.setDataCadastro(usuarioDto.dataCadastro());
         usuarioAtualizado.setTelefone(usuarioDto.telefone());
 
-        usuarioRepository.save(usuarioAtualizado);
+        this.usuarioRepository.save(usuarioAtualizado);
 
-        return usuarioAtualizado;
+        return this.toDto(usuarioAtualizado);
     }
 
     public UsuarioDto toDto(Usuario usuario) {

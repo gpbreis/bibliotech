@@ -20,10 +20,10 @@ public class Emprestimo {
     @SequenceGenerator(name = "emprestimos_id_seq", sequenceName = "emprestimos_id_seq", initialValue = 1, allocationSize = 1)
     private Long id;
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id")
     private Usuario usuarioId;
     @ManyToOne
-    @JoinColumn(name = "livro_id")
+    @JoinColumn(name = "livro_id", referencedColumnName = "id")
     private Livro livroId;
     @Column(name = "data_emprestimo")
     private LocalDate dataEmprestimo;
