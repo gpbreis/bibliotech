@@ -17,16 +17,8 @@ public class LivroService {
     public LivroDto criarLivro(LivroDto livroDto) {
 
         Livro novoLivro = this.toLivro(livroDto);
-        novoLivro.setTitulo(livroDto.titulo());
-        novoLivro.setAutor(livroDto.autor());
-        novoLivro.setIsbn(livroDto.isbn());
-        novoLivro.setDataPublicacao(livroDto.dataPublicacao());
-        novoLivro.setCategoria(livroDto.categoria());
         livroRepository.save(novoLivro);
-
-        LivroDto dto = this.toDto(novoLivro);
-
-        return dto;
+        return this.toDto(novoLivro);
     }
 
     public LivroDto lerLivro(Long id) {

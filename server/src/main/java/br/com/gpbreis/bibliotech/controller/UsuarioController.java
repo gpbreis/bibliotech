@@ -21,10 +21,12 @@ public class UsuarioController {
         return ResponseEntity.ok(novoUsuario);
     }
 
-//    @GetMapping("/{id}")
-//    public ResponseEntity<Usuario> ler(@PathVariable("id") Long id){
-//
-//    }
+    @GetMapping("/{id}")
+    public ResponseEntity<UsuarioDto> ler(@PathVariable("id") Long id){
+
+        UsuarioDto usuarioDto = this.usuarioService.lerUsuario(id);
+        return ResponseEntity.ok(usuarioDto);
+    }
 
     @PutMapping
     public ResponseEntity<Usuario> atualizar(@Valid @RequestBody UsuarioDto usuarioDto){
