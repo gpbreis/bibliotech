@@ -16,7 +16,8 @@ import java.time.LocalDate;
 public class Emprestimo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "emprestimos_id_seq")
+    @SequenceGenerator(name = "emprestimos_id_seq", sequenceName = "emprestimos_id_seq", initialValue = 1, allocationSize = 1)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "usuario_id")

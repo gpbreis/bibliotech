@@ -5,7 +5,7 @@ import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
-public record LivroDto(@NotBlank Long id,
+public record LivroDto(Long id,
                        @NotBlank String titulo,
                        @NotBlank String autor,
                        @NotBlank String isbn,

@@ -7,7 +7,7 @@ import jakarta.validation.constraints.PastOrPresent;
 
 import java.time.LocalDate;
 
-public record EmprestimoDto(@NotBlank Long id,
+public record EmprestimoDto(Long id,
                             @NotBlank Long usuarioId,
                             @NotBlank Long livroId,
                             @PastOrPresent LocalDate dataEmprestimo,

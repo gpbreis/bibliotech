@@ -16,7 +16,8 @@ import java.time.LocalDate;
 public class Livro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "livros_id_seq")
+    @SequenceGenerator(name = "livros_id_seq", sequenceName = "livros_id_seq", initialValue = 1, allocationSize = 1)
     private Long id;
     private String titulo;
     private String autor;
