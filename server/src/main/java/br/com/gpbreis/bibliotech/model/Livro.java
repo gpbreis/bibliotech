@@ -24,8 +24,6 @@ public class Livro {
     private String isbn;
     @Column(name = "data_publicacao", nullable = false)
     private LocalDate dataPublicacao;
-    @Column(name = "data_devolucao", nullable = false)
-    private LocalDate dataDevolucao;
     @Column(nullable = false)
-    private StatusEnum status;
+    private String categoria;
 }

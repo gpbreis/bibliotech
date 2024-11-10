@@ -3,8 +3,6 @@ package br.com.gpbreis.bibliotech.service;
 import br.com.gpbreis.bibliotech.dto.UsuarioDto;
 import br.com.gpbreis.bibliotech.model.Usuario;
 import br.com.gpbreis.bibliotech.repository.UsuarioRepository;
-import jakarta.transaction.Transactional;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
